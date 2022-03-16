@@ -54,5 +54,5 @@ $('.select-item').each(function(){
 9. publish and see the magic.
 
 
-Just to show the way the setup looks on webflow I'll show it here:
+Just to show the way the setup looks on webflow I'll show it here:<br/><br/>
 ![cms-select-layout-img](https://github.com/JorchCortez/Weblfow-tips---tricks/blob/main/imgs/cms-select-layout.png?raw=true)
