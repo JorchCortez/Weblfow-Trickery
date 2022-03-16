@@ -47,7 +47,7 @@ While Sites like Webflow come with great solutions for most things with their in
 <script>
 $('.select-item').each(function(){
 	var s = $(this).text();
-  $('.select-box').append('<option value="'+ s +'">' + s +'</option>');
+  $('.selected-class').append('<option value="'+ s +'">' + s +'</option>');
 }); 
 </script>
 ```
