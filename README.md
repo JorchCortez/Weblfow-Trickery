@@ -57,3 +57,25 @@ $('.select-item').each(function(){
 
 Just to show the way the setup looks on webflow I'll show it here:<br/><br/>
 ![cms-select-layout-img](https://github.com/JorchCortez/Weblfow-tips---tricks/blob/main/imgs/cms-select-layout.png?raw=true)
+
+
+## Text too long? 
+This is a quick fix to something that happened often to me and I'm not entirely sure about whether or not webflow has a fix for it.
+Sometimes text is just too long and it does not fit inside a card, for this particular cases I just add a small bit of css to cut it out and replace it with the usual three dots "..." just pop this small piece of code into your page and It'll be good to go.
+>now just an FYI in this particular case the modification is only used from a certain screen size onwards so you can either use that or feel free to take it off.
+
+```
+<script>
+//Replaces excesive text with ... on certain screen widths
+  let cardsTxt = document.querySelectorAll('.card-text') //the class of the text item
+  if(screen.width > 998){
+    for(cardInfo of cardsTxt){
+     var Description = cardInfo.innerText;
+      if (Description.length > 318) {
+          var shortDesc = Description.substring(0, 318) + " ...";
+          cardInfo.innerText = shortDesc;
+      }
+    }
+  } 
+</script>
+```
