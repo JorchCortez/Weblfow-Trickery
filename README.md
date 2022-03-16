@@ -55,4 +55,4 @@ $('.select-item').each(function(){
 
 
 Just to show the way the setup looks on webflow I'll show it here:
-![cms-select-layout-img]() 
+![cms-select-layout-img](https://github.com/JorchCortez/Weblfow-tips---tricks/blob/main/imgs/cms-select-layout.png?raw=true)
