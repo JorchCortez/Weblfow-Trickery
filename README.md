@@ -88,7 +88,7 @@ as I've said before. While Webflow's CMS is definitely a life saver in a lot of 
 - Container
 - Label
 - Input
-as shown here:
+as shown here:<br /><br />
 ![Input Type Checkbox ](https://github.com/JorchCortez/Weblfow-tips-and-tricks/blob/main/imgs/Checkbox-default-component.png?raw=true)
 
 now you can think you can just throw this checkbox inside of a CMS list and it'll work and you're not completely wrong... The main issue here is that since this is a CMS driven object it will give every single checkbox the same name resulting on the input giving only the value of the last checkbox on the list which is not normally the desired functionality (thought if it is in your case that's cool too 🤔)
