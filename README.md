@@ -79,3 +79,30 @@ Sometimes text is just too long and it does not fit inside a card, for this part
   } 
 </script>
 ```
+
+## Inputs
+
+#### CMS Checkboxes
+Now I know this is not one of the things that commonly happen but It happened to me so I may as well save the fix for the people.
+as I've said before. While Webflow's CMS is definitely a life saver in a lot of different cases it has a couple where it also lacks, one of them being the ability to properly use checkboxes, if you ever need to add a checkbox though CMS it will come with 3 things:
+- Container
+- Label
+- Input
+as shown here:
+![Input Type Checkbox ]()
+
+now you can think you can just throw this checkbox inside of a CMS list and it'll work and you're not completely wrong... The main issue here is that since this is a CMS driven object it will give every single checkbox the same name resulting on the input giving only the value of the last checkbox on the list which is not normally the desired functionality (thought if it is in your case that's cool too 🤔)
+but here's what I came up with, we can take the label text from CMS and add a little bit of JS flavoring on the mix  and voila! 
+
+```
+window.onload  =  function() {
+	let  checkboxes  =  document.querySelectorAll("#cms-checkboxes"); // Get All the desired checkboxes
+	checkboxes.forEach((checkbox) => {
+		let  name  =  checkbox.querySelector("#checkbox-label") //get the label
+		let  input  =  checkbox.querySelector("#checkbox-input") //get the input field
+		input.setAttribute("name", name.innerText); //Change the input name attribute to whichever the label is
+	});
+};
+```
+Now as the code tells us we'll need to add a couple of things in this case we'll add 3 Id's in total, one for the checkbox container which in our case is **cms-checkboxes**, one on our label **checkbox-label** and on our input **checkbox-input** and that is all the setup you'll need!
+
