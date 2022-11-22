@@ -106,3 +106,12 @@ window.onload  =  function() {
 ```
 Now as the code tells us we'll need to add a couple of things in this case we'll add 3 Id's in total, one for the checkbox container which in our case is **cms-checkboxes**, one on our label **checkbox-label** and on our input **checkbox-input** and that is all the setup you'll need!
 
+
+# Hide a container section if CMS has no results?
+
+A simple solution for this cases is to use some JS to look for webflow's class **w-dyn-empty** which only shows on a list wrapper when the container doesn't have results, if the cms list is empty it will hide the container
+
+      if($("#CMS-Collection").hasClass("w-dyn-empty")){
+      	$("#Container").hide();
+      }
+
