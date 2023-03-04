@@ -19,48 +19,62 @@
  * currency uses regular notation for them.
  */
 
-let formatNumber = (element, locales, number, options) => {
-    let final = Intl.NumberFormat(locales, options).format(number);
-    if (!final) return;
-    element.innerHTML = final;
-}
+"use strict";
 
-let numbersToFormat = document.querySelectorAll('[fn-formatnumber="true"]');
+(() => {
+    let formatNumber = (element, locales, number, options) => {
+        let final = Intl.NumberFormat(locales, options).format(number);
+        if (!final) return;
+        element.innerHTML = final;
+    }
 
-numbersToFormat.forEach((numberContainer) => {
-    let locales = numberContainer.getAttribute("fn-formatnumber-locales");
-    let style = numberContainer.getAttribute("fn-formatnumber-style");
-    let currency = numberContainer.getAttribute("fn-formatnumber-currency");
-    let unit = numberContainer.getAttribute("fn-formatnumber-unit");
-    let options = null;
+    let numbersToFormat = document.querySelectorAll('[fn-formatnumber="true"]');
 
-    if(style){ 
+    numbersToFormat.forEach((numberContainer) => {
+        let locales = numberContainer.getAttribute("fn-formatnumber-locales");
+        let style = numberContainer.getAttribute("fn-formatnumber-style");
+        let currency = numberContainer.getAttribute("fn-formatnumber-currency");
+        let unit = numberContainer.getAttribute("fn-formatnumber-unit");
+        let options = null;
+
+        if (style) {
             switch (style) {
                 case 'currency':
                     if (!currency) return;
-                    options = { style: style, currency: currency }
+                    options = {
+                        style: style,
+                        currency: currency
+                    }
                     break;
-                case 'decimal': 
-                    options = { style: style };
+                case 'decimal':
+                    options = {
+                        style: style
+                    };
                     break;
                 case 'percent':
-                    options = { style: style };
+                    options = {
+                        style: style
+                    };
                     break;
                 case 'unit':
-                    options = { style: style, unit: unit };
+                    options = {
+                        style: style,
+                        unit: unit
+                    };
                     break;
                 default:
                     console.log(`undefined`);
             }
-            
-    }
-    
-    let value = numberContainer.textContent
-    if (!value) return;
 
-    try { 
-        formatNumber(numberContainer, locales, value, options);
-    } catch (error) { 
-        numberContainer.innerHTML = `there was an error processing the format, ${error}`;
-    }
+        }
+
+        let value = numberContainer.textContent
+        if (!value) return;
+
+        try {
+            formatNumber(numberContainer, locales, value, options);
+        } catch (error) {
+            numberContainer.innerHTML = `there was an error processing the format, ${error}`;
+        }
+    });
 });
