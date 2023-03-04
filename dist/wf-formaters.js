@@ -19,6 +19,8 @@
  * currency uses regular notation for them.
  */
 
+console.log("BANANA!")
+
 let formatNumber = (element, locales, number, options) => {
     let final = Intl.NumberFormat(locales, options).format(number);
     if (!final) return;
