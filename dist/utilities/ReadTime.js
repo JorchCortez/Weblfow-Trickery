@@ -18,7 +18,7 @@
  */
 
 
-function readingTime() {
+let readingTime = () => {
     let timeDisplay = document.querySelector('[wf-util-readtime-item="display"]');
     let container = document.querySelector('[wf-util-readtime-item="article"]');
     let wordSpeed = timeDisplay.getAttribute("wf-util-readtime-words");
@@ -27,8 +27,15 @@ function readingTime() {
     const wpm = wordSpeed || 225;
     console.log(wpm);
     const words = text.trim().split(/\s+/).length;
-    const time = Math.ceil(words / wpm);
-    timeDisplay.innerText = time;
+    const rawTime = words / wpm;
+    if(rawTime < 1 ){ 
+        timeDisplay.innerText = "less than a minute.";
+        return;
+    }
+    else {
+        timeDisplay.innerText = Math.ceil(rawTime) + " minutes.";
+    } 
 }
+
 
 readingTime();
