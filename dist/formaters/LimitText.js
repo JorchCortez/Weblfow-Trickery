@@ -20,7 +20,6 @@ let LimitText = () => {
 
     let cardsText = document.querySelectorAll('[wf-util-limittext-item="text"]');
     let textLength = timeDisplay.getAttribute("wf-util-limittext-length") || 300 ;
-    console.log(textLength)
     for (text of cardsText) {
         var Description = text.innerText;
         if (Description.length > textLength) {
