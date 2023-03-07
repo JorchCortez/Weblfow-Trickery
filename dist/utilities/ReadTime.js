@@ -24,8 +24,7 @@ let readingTime = () => {
     let wordSpeed = timeDisplay.getAttribute("wf-util-readtime-words");
 
     const text = container.innerText;
-    const wpm = wordSpeed || 225;
-    console.log(wpm);
+    const wpm = wordSpeed || 225; 
     const words = text.trim().split(/\s+/).length;
     const rawTime = words / wpm;
     if(rawTime < 1 ){ 
