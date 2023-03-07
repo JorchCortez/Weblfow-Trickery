@@ -63,7 +63,6 @@ numbersToFormat.forEach((numberContainer) => {
             default:
                 console.log(`undefined`);
         }
-
     }
 
     let value = numberContainer.textContent
