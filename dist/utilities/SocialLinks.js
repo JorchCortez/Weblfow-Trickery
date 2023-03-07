@@ -52,7 +52,7 @@ const SetSocialShare = () => {
         social_cp.forEach((social_btn) => {
             social_btn.addEventListener('click', () => {
                 navigator.clipboard.writeText(`${url}`);
-                alert(`${url} copied to clipboard!`);
+                console.log(`${url} copied to clipboard!`);
             });
         });
     }
