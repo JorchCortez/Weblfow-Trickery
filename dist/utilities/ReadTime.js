@@ -21,6 +21,7 @@
 let readingTime = () => {
     let timeDisplay = document.querySelector('[wf-util-readtime-item="display"]');
     let container = document.querySelector('[wf-util-readtime-item="article"]');
+    let suffix = document.querySelector('[wf-util-readtime-suffix]');
     let wordSpeed = timeDisplay.getAttribute("wf-util-readtime-words");
 
     const text = container.innerText;
@@ -28,11 +29,11 @@ let readingTime = () => {
     const words = text.trim().split(/\s+/).length;
     const rawTime = words / wpm;
     if(rawTime < 1 ){ 
-        timeDisplay.innerText = "less than a minute.";
+        timeDisplay.innerText = "less than a minute" + (suffix) ? suffix : ".";
         return;
     }
     else {
-        timeDisplay.innerText = Math.ceil(rawTime) + " minutes.";
+        timeDisplay.innerText = Math.ceil(rawTime) + (suffix) ? suffix : " minutes.";
     } 
 }
 
