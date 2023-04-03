@@ -1,7 +1,6 @@
-# Weblfow tips & tricks 💻
+# Weblfow Trickery 💻
 Created by [Jorge C.](https://github.com/JorchCortez)<br />
-Last updated by:<br />
-Last Updated: 18/03/2022<br />
+Last Updated: 03/04/2022<br />
 
 ---
 > this is just a small guide through what I've found while working with webflow, this fixes are not from webflow itself but from both the community and my self while trying to solve most problems so if it solves any of yours don't hesitate on staring this repo and if you feel there could be anything you can add to feel free to modify this file and send a PR to help with it 😃
