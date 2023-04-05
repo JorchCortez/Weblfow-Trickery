@@ -17,25 +17,28 @@
  * Custom attribute wf-util-readtime-words in the display element
  */
 
-
 let readingTime = () => {
-    let timeDisplay = document.querySelector('[wf-util-readtime-item="display"]');
-    let container = document.querySelector('[wf-util-readtime-item="article"]');
-    let suffix = document.querySelector('[wf-util-readtime-suffix]');
-    let wordSpeed = timeDisplay.getAttribute("wf-util-readtime-words");
+    let timeDisplay = document.querySelectorAll('[wf-util-readtime-item="display"]');
+    let container = document.querySelector('[wf-util-readtime-item="article"]'); 
 
-    const text = container.innerText;
-    const wpm = wordSpeed || 225; 
-    const words = text.trim().split(/\s+/).length;
-    const rawTime = words / wpm;
-    if(rawTime < 1 ){ 
-        timeDisplay.innerText = "less than a minute" + (suffix) ? suffix : ".";
-        return;
-    }
-    else {
-        timeDisplay.innerText = Math.ceil(rawTime) + (suffix) ? suffix : " minutes.";
-    } 
+    timeDisplay.forEach((display, i) => { 
+        let wordSpeed = display.getAttribute("wf-util-readtime-words");
+        let suffix = display.getAttribute('wf-util-readtime-suffix');
+        let smallsuffix = display.getAttribute('wf-util-readtime-smallsuffix');
+        
+        const text = container.innerText;
+        const wpm = wordSpeed || 225; 
+        const words = text.trim().split(/\s+/).length;
+        const rawTime = words / wpm;
+
+        if(rawTime < 1 ){ 
+            display.innerText = "less than a minute" + (smallsuffix) ? smallsuffix : ".";
+            return;
+        }
+        else {
+            display.innerText = Math.ceil(rawTime) + (suffix) ? suffix : " minutes.";
+        }
+    });
 }
-
 
 readingTime();
