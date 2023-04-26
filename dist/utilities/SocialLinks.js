@@ -12,19 +12,19 @@
 /*
  * set social links with just one attribute
  * Requirements: 
- * A link for each social media with custom attribute accordingly wf-util-share-{Social}="true"
+ * A link for each social media with custom attribute accordingly wt-share="{Social}"
  */
 const SetSocialShare = () => {
     let title = document.title;
     let url = window.location.href;
 
-    let social_fb   = document.querySelectorAll('[wf-util-share="facebook"]');
-    let social_tw   = document.querySelectorAll('[wf-util-share="twitter"]');
-    let social_ln   = document.querySelectorAll('[wf-util-share="linkedin"]');
-    let social_wp   = document.querySelectorAll('[wf-util-share="whatsapp"]'); 
-    let social_pi   = document.querySelectorAll('[wf-util-share="pinterest"]'); 
-    let social_red  = document.querySelectorAll('[wf-util-share="reddit"]');  
-    let social_cp   = document.querySelectorAll('[wf-util-share="copy"]');
+    let social_fb   = document.querySelectorAll('[wt-share="facebook"]');
+    let social_tw   = document.querySelectorAll('[wt-share="twitter"]');
+    let social_ln   = document.querySelectorAll('[wt-share="linkedin"]');
+    let social_wp   = document.querySelectorAll('[wt-share="whatsapp"]'); 
+    let social_pi   = document.querySelectorAll('[wt-share="pinterest"]'); 
+    let social_red  = document.querySelectorAll('[wt-share="reddit"]');  
+    let social_cp   = document.querySelectorAll('[wt-share="copy"]');
 
     if( social_fb.length === 0 && social_tw.length === 0 && social_ln.length === 0 && social_wp.length === 0 && social_pi.length === 0 &&
         social_red.length === 0 && social_cp.length === 0 ) return;
