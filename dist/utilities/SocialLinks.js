@@ -18,13 +18,13 @@ const SetSocialShare = () => {
     let title = document.title;
     let url = window.location.href;
 
-    let social_fb   = document.querySelectorAll('[wt-share="facebook"]');
-    let social_tw   = document.querySelectorAll('[wt-share="twitter"]');
-    let social_ln   = document.querySelectorAll('[wt-share="linkedin"]');
-    let social_wp   = document.querySelectorAll('[wt-share="whatsapp"]'); 
-    let social_pi   = document.querySelectorAll('[wt-share="pinterest"]'); 
-    let social_red  = document.querySelectorAll('[wt-share="reddit"]');  
-    let social_cp   = document.querySelectorAll('[wt-share="copy"]');
+    let social_fb   = document.querySelectorAll('[wt-share-element="facebook"]');
+    let social_tw   = document.querySelectorAll('[wt-share-element="twitter"]');
+    let social_ln   = document.querySelectorAll('[wt-share-element="linkedin"]');
+    let social_wp   = document.querySelectorAll('[wt-share-element="whatsapp"]'); 
+    let social_pi   = document.querySelectorAll('[wt-share-element="pinterest"]'); 
+    let social_red  = document.querySelectorAll('[wt-share-element="reddit"]');  
+    let social_cp   = document.querySelectorAll('[wt-share-element="copy"]');
 
     if( social_fb.length === 0 && social_tw.length === 0 && social_ln.length === 0 && social_wp.length === 0 && social_pi.length === 0 &&
         social_red.length === 0 && social_cp.length === 0 ) return;
