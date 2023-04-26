@@ -18,25 +18,23 @@
  */
 
 let readingTime = () => {
-    let timeDisplay = document.querySelectorAll('[wf-util-readtime-item="display"]');
-    let container = document.querySelector('[wf-util-readtime-item="article"]'); 
-
+    let timeDisplay = document.querySelectorAll('[wt-readtime-element="display"]');
+    let container = document.querySelector('[wt-readtime-element="article"]'); 
     timeDisplay.forEach((display, i) => { 
-        let wordSpeed = display.getAttribute("wf-util-readtime-words");
-        let suffix = display.getAttribute('wf-util-readtime-suffix');
-        let smallsuffix = display.getAttribute('wf-util-readtime-smallsuffix');
+        let wordSpeed = display.getAttribute("wt-readtime-words");
+        let suffix = display.getAttribute('wt-readtime-suffix');
+        let smallsuffix = display.getAttribute('wt-readtime-smallsuffix');
         
         const text = container.innerText;
         const wpm = wordSpeed || 225; 
         const words = text.trim().split(/\s+/).length;
         const rawTime = words / wpm;
-
         if(rawTime < 1 ){ 
-            display.innerText = "less than a minute" + (smallsuffix) ? smallsuffix : ".";
+            display.innerText = (smallsuffix) ? smallsuffix : "less than a minute.";
             return;
         }
         else {
-            display.innerText = Math.ceil(rawTime) + (suffix) ? suffix : " minutes.";
+            display.innerText = (suffix) ? Math.ceil(rawTime) + " " + suffix : Math.ceil(rawTime) + " minutes.";
         }
     });
 }
