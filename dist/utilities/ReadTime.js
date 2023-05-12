@@ -33,6 +33,10 @@ let readingTime = () => {
             display.innerText = (smallsuffix) ? smallsuffix : "less than a minute.";
             return;
         }
+        else if(rawTime == 1 ) { 
+            display.innerText = "a minute.";
+            return;
+        }
         else {
             display.innerText = (suffix) ? Math.ceil(rawTime) + " " + suffix : Math.ceil(rawTime) + " minutes.";
         }
