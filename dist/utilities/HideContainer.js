@@ -17,7 +17,7 @@
  */
 
 const ContainerHideScan = () => {
-    let hideContainers = document.querySelectorAll('[wt-hidecontainer-element="container"]');
+    let hideContainers = document.querySelectorAll('[wt-hidecontainer-element^="container-"],[wt-hidecontainer-element="container"]');
 		console.log(hideContainers)
     hideContainers.forEach((cmsContainer) => {
         let _cmsList = cmsContainer.querySelector('[wt-hidecontainer-element="list"]');
