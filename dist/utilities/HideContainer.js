@@ -16,11 +16,14 @@
  * this can be used multiple times in the same page without an issue.
  */
 
-let cmsHideContainers = document.querySelectorAll('[fn-hidecontainer-element="container"]');
+const ContainerHideScan = () => {
+    let hideContainers = document.querySelectorAll('[wt-hidecontainer-element="container"]');
 
-cmsHideContainers.forEach((cmsContainer) => {
-	let _cmsList = cmsContainer.querySelector('[fn-hidecontainer-element="list"]');
-    if(!_cmsList) return;
-    if(_cmsList.classList.contains("w-dyn-empty"))cmsContainer.remove();
-});
+    hideContainers.forEach((cmsContainer) => {
+        let _cmsList = cmsContainer.querySelector('[wt-hidecontainer-element="list"]');
+        if(!_cmsList) return;
+        if(_cmsList.classList.contains("w-dyn-empty"))cmsContainer.remove();
+    });
+}
 
+ContainerHideScan();
