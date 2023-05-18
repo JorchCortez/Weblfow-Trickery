@@ -26,13 +26,13 @@ let formatNumber = (element, locales, number, options) => {
     element.innerHTML = final;
 }
 
-let numbersToFormat = document.querySelectorAll('[fn-formatnumber="true"]');
+let numbersToFormat = document.querySelectorAll('[wt-formatnumber-element="number"]');
 
 numbersToFormat.forEach((numberContainer) => {
-    let locales = numberContainer.getAttribute("fn-formatnumber-locales");
-    let style = numberContainer.getAttribute("fn-formatnumber-style");
-    let currency = numberContainer.getAttribute("fn-formatnumber-currency");
-    let unit = numberContainer.getAttribute("fn-formatnumber-unit");
+    let locales = numberContainer.getAttribute("wt-formatnumber-locales");
+    let style = numberContainer.getAttribute("wt-formatnumber-style");
+    let currency = numberContainer.getAttribute("wt-formatnumber-currency");
+    let unit = numberContainer.getAttribute("wt-formatnumber-unit");
     let options = null;
 
     if (style) {

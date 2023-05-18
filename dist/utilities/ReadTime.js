@@ -8,15 +8,6 @@
  * https://github.com/JorchCortez/Weblfow-utils
  */
 
-/*
- * Showing the time to read an article.
- * Requirements: 
- * Element with custom attribute wf-util-readtime-item="display" for displaying the time
- * Element with custom attribute wf-util-readtime-item="article" in the article container
- * Optional: 
- * Custom attribute wf-util-readtime-words in the display element
- */
-
 let readingTime = () => {
     let timeDisplay = document.querySelectorAll('[wt-readtime-element="display"]');
     let container = document.querySelector('[wt-readtime-element="article"]'); 

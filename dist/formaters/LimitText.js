@@ -8,19 +8,11 @@
  * https://github.com/JorchCortez/Weblfow-utils
  */
 
-/*
- * Limit the length of a text
- * Requirements: 
- * Element with custom attribute wf-util-limittext-item="text" containing the text 
- * Optional: 
- * Custom attribute wf-util-limittext-length in that element containing the character length, this is optional default is set to 300
- */
-
 let LimitText = () => {
 
-    let cardsText = document.querySelectorAll('[wf-util-limittext-item="text"]');
+    let cardsText = document.querySelectorAll('[wt-limittext-element="text"]');
     for (text of cardsText) {
-        let textLength = text.getAttribute("wf-util-limittext-length") || 300 ;
+        let textLength = text.getAttribute("wt-limittext-length") || 300 ;
         var Description = text.innerText;
         if (Description.length > textLength) {
             var shortDesc = Description.substring(0, textLength) + "...";

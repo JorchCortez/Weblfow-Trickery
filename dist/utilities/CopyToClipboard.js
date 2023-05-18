@@ -50,7 +50,6 @@ const SetCopyToClipboard = () => {
             }, 2000);
 
             navigator.clipboard.writeText(textToCopy);
-            console.log(textToCopy);
         });
     }); 
 }

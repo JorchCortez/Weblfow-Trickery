@@ -8,12 +8,6 @@
  * https://github.com/JorchCortez/Weblfow-utils
  */
 
-
-/*
- * set social links with just one attribute
- * Requirements: 
- * A link for each social media with custom attribute accordingly wt-share="{Social}"
- */
 const SetSocialShare = () => {
     let title = document.title;
     let url = window.location.href;
@@ -72,7 +66,6 @@ const SetSocialShare = () => {
         social_cp.forEach((social_btn) => {
             social_btn.addEventListener('click', () => {
                 navigator.clipboard.writeText(`${url}`);
-                console.log(`${url} copied to clipboard!`);
             });
         });
     }
