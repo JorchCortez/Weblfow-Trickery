@@ -17,14 +17,21 @@
  */
 
 const ContainerHideScan = () => {
-    let hideContainers = document.querySelectorAll('[wt-hidecontainer-element^="container-"], [wt-hidecontainer-element="container"]');
-		console.log(hideContainers)
-    hideContainers.forEach((cmsContainer) => {
-        let _cmsList = cmsContainer.querySelector('[wt-hidecontainer-element="list"]');
-        if(!_cmsList) return;
-        let _r = cmsContainer.getAttribute('wt-hidecontainer-remove');
-        if(_r) {if(_cmsList.classList.contains("w-dyn-empty")) cmsContainer.remove();}
-        else{if(_cmsList.classList.contains("w-dyn-empty")) cmsContainer.style.display = 'none';}
-    });
+  let hideContainers = document.querySelectorAll('[wt-hidecontainer-element^="container-"], [wt-hidecontainer-element="container"]');
+  console.log(hideContainers)
+  hideContainers.forEach((cmsContainer) => {
+      let _cmsList = cmsContainer.querySelector('[wt-hidecontainer-element="list"]');
+      if(!_cmsList) return;
+      let _r = cmsContainer.getAttribute('wt-hidecontainer-remove');
+      if(_r) {if(_cmsList.classList.contains("w-dyn-empty")) cmsContainer.remove();}
+      else{if(_cmsList.classList.contains("w-dyn-empty")) cmsContainer.style.display = 'none';}
+  });
 }
-ContainerHideScan();
+
+if (/complete|interactive|loaded/.test(document.readyState)) {
+  ContainerHideScan();
+} else { 
+  window.addEventListener('DOMContentLoaded', function () { 
+    ContainerHideScan();
+  })
+}
