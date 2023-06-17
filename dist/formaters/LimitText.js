@@ -5,7 +5,7 @@
  * not only make my life easier in the future but hopefuly yours as well.
  * (c) 2023 Jorge Cortez
  * MIT License
- * https://github.com/JorchCortez/Weblfow-utils
+ * https://github.com/JorchCortez/Weblfow-Trickery
  */
 
 let LimitText = () => {
@@ -21,4 +21,10 @@ let LimitText = () => {
     }
 }
 
-LimitText();
+if (/complete|interactive|loaded/.test(document.readyState)) {
+    LimitText();
+} else { 
+    window.addEventListener('DOMContentLoaded', function () { 
+        LimitText();
+    })
+}

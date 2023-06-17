@@ -5,7 +5,7 @@
  * not only make my life easier in the future but hopefuly yours as well.
  * (c) 2023 Jorge Cortez
  * MIT License
- * https://github.com/JorchCortez/Weblfow-utils
+ * https://github.com/JorchCortez/Weblfow-Trickery
  */
 
 const SetSocialShare = () => {
@@ -71,4 +71,10 @@ const SetSocialShare = () => {
     }
 }
 
-SetSocialShare();
+if (/complete|interactive|loaded/.test(document.readyState)) {
+    SetSocialShare();
+} else { 
+    window.addEventListener('DOMContentLoaded', function () { 
+        SetSocialShare();
+    })
+}

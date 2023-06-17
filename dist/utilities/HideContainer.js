@@ -5,7 +5,7 @@
  * not only make my life easier in the future but hopefuly yours as well.
  * (c) 2023 Jorge Cortez
  * MIT License
- * https://github.com/JorchCortez/Weblfow-utils
+ * https://github.com/JorchCortez/Weblfow-Trickery
  */
 
 /*
@@ -18,7 +18,6 @@
 
 const ContainerHideScan = () => {
   let hideContainers = document.querySelectorAll('[wt-hidecontainer-element^="container-"], [wt-hidecontainer-element="container"]');
-  console.log(hideContainers)
   hideContainers.forEach((cmsContainer) => {
       let _cmsList = cmsContainer.querySelector('[wt-hidecontainer-element="list"]');
       if(!_cmsList) return;

@@ -5,7 +5,7 @@
  * not only make my life easier in the future but hopefuly yours as well.
  * (c) 2023 Jorge Cortez
  * MIT License
- * https://github.com/JorchCortez/Weblfow-utils
+ * https://github.com/JorchCortez/Weblfow-Trickery
  */
 
 let readingTime = () => {
@@ -34,4 +34,10 @@ let readingTime = () => {
     });
 }
 
-readingTime();
+if (/complete|interactive|loaded/.test(document.readyState)) {
+    readingTime();
+} else { 
+    window.addEventListener('DOMContentLoaded', function () {
+        readingTime();
+    })
+}
