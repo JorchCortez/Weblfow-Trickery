@@ -1,5 +1,5 @@
 /*!
- * Webflow Utilities v1.0.10
+ * Webflow Utilities v1.0.11
  * Have you ever tried fixing the same small thing over and over again on your webflow projects?
  * Well I have so I made a small compillation of the different fixes, utilities and tricks that will
  * not only make my life easier in the future but hopefuly yours as well.
