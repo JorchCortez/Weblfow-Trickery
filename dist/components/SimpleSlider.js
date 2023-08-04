@@ -19,6 +19,7 @@ let InitializeSliders = () => {
         let startX;
         let scrollLeft;
 
+        //Mouse Options
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
             slider.classList.add('active');
@@ -48,6 +49,38 @@ let InitializeSliders = () => {
             velX = slider.scrollLeft - prevScrollLeft;
         });
 
+
+        //Touch options
+        slider.addEventListener('touchstart', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            cancelMomentumTracking(momentumID);
+        });
+
+        slider.addEventListener('touchcancel', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('touchend', () => {
+            isDown = false;
+            slider.classList.remove('active');
+            beginMomentumTracking(velX, slider, momentumID);
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * sliderSpeed;
+            var prevScrollLeft = slider.scrollLeft;
+            slider.scrollLeft = scrollLeft - walk;
+            velX = slider.scrollLeft - prevScrollLeft;
+        });
+
+        //Mouse Wheel options
         slider.addEventListener('wheel', (e) => {
             cancelMomentumTracking(momentumID);
         });
