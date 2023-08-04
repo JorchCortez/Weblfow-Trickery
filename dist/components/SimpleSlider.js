@@ -54,7 +54,7 @@ let InitializeSliders = () => {
         slider.addEventListener('touchstart', (e) => {
             isDown = true;
             slider.classList.add('active');
-            startX = e.pageX - slider.offsetLeft;
+            startX = e.targetTouches[0].pageX - slider.offsetLeft;
             scrollLeft = slider.scrollLeft;
             cancelMomentumTracking(momentumID);
         });
@@ -73,7 +73,7 @@ let InitializeSliders = () => {
         slider.addEventListener('touchmove', (e) => {
             if (!isDown) return;
             e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
+            const x = e.targetTouches[0].pageX - slider.offsetLeft;
             const walk = (x - startX) * sliderSpeed;
             var prevScrollLeft = slider.scrollLeft;
             slider.scrollLeft = scrollLeft - walk;
