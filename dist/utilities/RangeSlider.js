@@ -10,6 +10,10 @@
 
 const setupRangeSliders = (inputLeft, inputRight, thumbLeft, thumbRight, range, rangeStart, rangeEnd, displayStart, displayEnd) => {
 
+    let triggerEvent = (elem) =>{
+        elem.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+
     let setLeftValue = () => {
         var _this = inputLeft,
             min = parseInt(_this.min),
@@ -29,6 +33,9 @@ const setupRangeSliders = (inputLeft, inputRight, thumbLeft, thumbRight, range, 
         let posFix = parseInt(percent) / 11;
         thumbLeft.style.left = parseInt(percent) - parseInt(posFix) + "%";
         range.style.left = parseInt(percent) + "%";
+
+        triggerEvent(rangeStart)
+
     }
 
     let setRightValue = () => {
@@ -51,6 +58,9 @@ const setupRangeSliders = (inputLeft, inputRight, thumbLeft, thumbRight, range, 
         let posFix = parseInt(percent / 10) - 10;
         thumbRight.style.right = (100 - parseInt(percent) + parseInt(posFix)) + "%";
         range.style.right = (100 - parseInt(percent)) + "%";
+
+        triggerEvent(rangeEnd)
+
     }
 
     setLeftValue();
