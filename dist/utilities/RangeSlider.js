@@ -15,6 +15,7 @@ const setupRangeSliders = (inputLeft, inputRight, thumbLeft, thumbRight, range, 
     }
 
     let setLeftValue = () => {
+
         var _this = inputLeft,
             min = parseInt(_this.min),
             max = parseInt(_this.max);
@@ -35,7 +36,6 @@ const setupRangeSliders = (inputLeft, inputRight, thumbLeft, thumbRight, range, 
         range.style.left = parseInt(percent) + "%";
 
         triggerEvent(rangeStart)
-
     }
 
     let setRightValue = () => {
@@ -60,7 +60,6 @@ const setupRangeSliders = (inputLeft, inputRight, thumbLeft, thumbRight, range, 
         range.style.right = (100 - parseInt(percent)) + "%";
 
         triggerEvent(rangeEnd)
-
     }
 
     setLeftValue();
@@ -68,6 +67,24 @@ const setupRangeSliders = (inputLeft, inputRight, thumbLeft, thumbRight, range, 
 
     inputLeft.addEventListener("input", setLeftValue);
     inputRight.addEventListener("input", setRightValue);
+}
+
+const setupInputBoxes = (inputLeft, inputRight, thumbLeft, thumbRight, range, rangeStart, rangeEnd, displayStart, displayEnd) => {
+
+    let setLeftValue = () => {
+        if(!rangeStart || rangeStart.value === null) {
+            console.log("start val got cleared")
+        }
+    }
+
+    let setRightValue = () => {
+        if(!rangeEnd || rangeEnd.value === null) {
+            console.log("end val got cleared")
+        }
+    }
+
+    rangeStart.addEventListener("input", setLeftValue);
+    rangeEnd.addEventListener("input", setRightValue);
 }
 
 const checkElement = (element, name) => {
@@ -81,6 +98,11 @@ const initializeRangeSlider = () => {
     if(!rangeSliders) return;
 
     rangeSliders.forEach((rangeSlider) => {
+        //get input values
+        let sliderMin       = rangeSlider.querySelector('[wt-rangeslider-min="input-left"]');
+        let sliderMax       = rangeSlider.querySelector('[wt-rangeslider-max="input-left"]');
+        let sliderSteps     = rangeSlider.querySelector('[wt-rangeslider-steps="input-left"]');
+
         //getting range range slider's index if multiple
         let _triggerAttr = rangeSlider.getAttribute(`wt-rangeslider-element`);
         let index = _triggerAttr.replace('slider', '')
@@ -111,7 +133,10 @@ const initializeRangeSlider = () => {
             return;
         }
         
-        setupRangeSliders(inputLeft, inputRight, thumbLeft, thumbRight, range, rangeStart, rangeEnd, displayStart, displayEnd)
+        setupRangeSliders(inputLeft, inputRight, thumbLeft, thumbRight, range, rangeStart, rangeEnd, displayStart, displayEnd);
+        if(rangeStart || rangeEnd) {
+            setupInputBoxes(inputLeft, inputRight, thumbLeft, thumbRight, range, rangeStart, rangeEnd, displayStart, displayEnd);
+        }
     })
 }
 
