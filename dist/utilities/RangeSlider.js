@@ -24,8 +24,10 @@ const setupRangeSliders = ({inputLeft, inputRight, thumbLeft, thumbRight, range,
             rangeStart.value = inputLeft.value;
         }
         else {
-            if(rangeStart) rangeStart.value = inputLeft.value;
-            if(displayStart) displayStart.innerHTML = inputLeft.value;
+            if(rangeStart.value <= rangeEnd.value){
+                if(rangeStart) rangeStart.value = inputLeft.value;
+                if(displayStart) displayStart.innerHTML = inputLeft.value;
+            }
         }
             
         _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
@@ -47,8 +49,10 @@ const setupRangeSliders = ({inputLeft, inputRight, thumbLeft, thumbRight, range,
             if(rangeEnd) rangeEnd.value = inputRight.value;
         }
         else {
-            if(rangeEnd) rangeEnd.value = inputRight.value;
-            if(displayEnd) displayEnd.innerHTML = inputRight.value;
+            if(rangeEnd.value >= rangeStart.value){
+                if(rangeEnd) rangeEnd.value = inputRight.value;
+                if(displayEnd) displayEnd.innerHTML = inputRight.value;
+            }
         }
 
         _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
