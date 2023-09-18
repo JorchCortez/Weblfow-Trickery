@@ -8,6 +8,7 @@
  * https://github.com/JorchCortez/Weblfow-Trickery
  */
 
+
 const setupRangeSliders = ({inputLeft, inputRight, thumbLeft, thumbRight, range, rangeStart, rangeEnd, displayStart, displayEnd, sliderMin, sliderMax, sliderSteps}) => {
 
     let triggerEvent = (elem) =>{
@@ -24,9 +25,9 @@ const setupRangeSliders = ({inputLeft, inputRight, thumbLeft, thumbRight, range,
             rangeStart.value = inputLeft.value;
         }
         else {
-            if(rangeStart.value >= rangeEnd.value){
-                if(rangeStart) rangeStart.value = inputLeft.value;
-                if(displayStart) displayStart.innerHTML = inputLeft.value;
+            if(Number(inputLeft.value) <= Number( inputRight.value)){
+              if(rangeStart) rangeStart.value = inputLeft.value;
+              if(displayStart) displayStart.innerHTML = inputLeft.value;
             }
         }
             
@@ -49,7 +50,7 @@ const setupRangeSliders = ({inputLeft, inputRight, thumbLeft, thumbRight, range,
             if(rangeEnd) rangeEnd.value = inputRight.value;
         }
         else {
-            if(rangeEnd.value <= rangeStart.value){
+            if(Number(inputLeft.value) <= Number( inputRight.value)){
                 if(rangeEnd) rangeEnd.value = inputRight.value;
                 if(displayEnd) displayEnd.innerHTML = inputRight.value;
             }
@@ -77,8 +78,6 @@ const setupInputBoxes = ({inputLeft, inputRight, thumbLeft, thumbRight, range, r
 
     let setLeftValue = () => {
         if(rangeStart.value === null || rangeStart.value === "") {
-            console.log("start val got cleared")
-
             if(displayStart){
                 if(displayStart) displayStart.innerHTML = sliderMin;
             }
@@ -90,8 +89,6 @@ const setupInputBoxes = ({inputLeft, inputRight, thumbLeft, thumbRight, range, r
 
     let setRightValue = () => {
         if(rangeEnd.value === null || rangeEnd.value === "") {
-            console.log("start val got cleared")
-
             if(displayStart){
                 if(displayEnd) displayEnd.innerHTML = sliderMax;
             }
