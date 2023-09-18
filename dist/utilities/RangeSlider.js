@@ -24,7 +24,7 @@ const setupRangeSliders = ({inputLeft, inputRight, thumbLeft, thumbRight, range,
             rangeStart.value = inputLeft.value;
         }
         else {
-            if(rangeStart.value <= rangeEnd.value){
+            if(rangeStart.value >= rangeEnd.value){
                 if(rangeStart) rangeStart.value = inputLeft.value;
                 if(displayStart) displayStart.innerHTML = inputLeft.value;
             }
