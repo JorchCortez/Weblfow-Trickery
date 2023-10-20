@@ -22,10 +22,10 @@ Webflow.push(function () {
         if (tabsComponent) {
             tabsComponent.forEach(tabs => {
                 
-                let timeout = tabs.getAttribute("wt-simpleslider-speed") || 5000;
+                let timeout = tabs.getAttribute("wt-tabSlider-speed") || 5000;
                 let tabBtns = tabs.querySelector("[wt-tabSlider-element='menu']");
                 var tb = Array.from(tabBtns.children);
-            
+
                 const tabLoop = (tm, timeout) => {
                     tabTimeout = setTimeout(setTabTimeout, timeout, tm); // 5 Second Rotation
                 }
@@ -50,11 +50,11 @@ Webflow.push(function () {
                         tabLoop(tabBtns, timeout);
                     }, false);
                 })
-                
+
                 // Start Tabs
                 var tabTimeout;
                 clearTimeout(tabTimeout);
-              	tabLoop(tabBtns, timeout);
+                tabLoop(tabBtns, timeout);
             })
         }
     }, 500)
