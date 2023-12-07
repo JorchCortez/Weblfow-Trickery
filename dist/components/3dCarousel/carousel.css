@@ -1,0 +1,54 @@
+
+.banner-item {
+    z-index: 0;
+    width: 55.556vw;
+    height: 400px;
+    background-color: gray;
+    transition: all .25s ease-in-out;
+    position: absolute;
+    top: 20px;
+    z-index: -1;
+}
+.banner-container .banner-item.wt-carousel-i-1 {
+	left: 20%;
+  opacity: .4 !important;
+  z-index:0;
+  transform: translateX(-50%) scale(0.6);
+}
+.banner-container .banner-item.wt-carousel-i-2 {
+	left: 35%;
+  z-index:1;
+  opacity: 1 !important;
+  transform: translateX(-50%) scale(0.8);
+}
+.banner-container .banner-item.wt-carousel-i-3 {
+	left: 50%;
+  opacity: 1 !important;
+  transform: translateX(-50%);
+  box-shadow: 12px 5px 33px 6px rgba(0,0,0,0,0.35);
+  z-index:2;
+}
+.banner-container .banner-item.wt-carousel-i-4 {
+	left: 65%;
+  z-index:1;
+  opacity: 1 !important;
+  transform: translateX(-50%) scale(0.8);
+}
+.banner-container .banner-item.wt-carousel-i-5 {
+	left: 80%;
+  opacity: .4 !important;
+  z-index:0;
+  transform: translateX(-50%) scale(0.6);
+}
+
+.wt-slider-dot {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  margin:0;
+  padding:0;
+  border: none;
+}
+.wt-slider-dot.active {
+  background-color: #ff0000;
+}
