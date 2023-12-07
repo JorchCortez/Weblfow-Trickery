@@ -146,8 +146,8 @@ class Carousel {
 
   initializeSlider(){
 	if(this.carouselContainer){
-		prev = escape(this.carouselContainer.getAttribute('wt-carousel-prev')) || "previous";
-		next = escape(this.carouselContainer.getAttribute('wt-carousel-next')) || "next";
+		prev = "previous" || escape(this.carouselContainer.getAttribute('wt-carousel-prev'));
+		next = "next" || escape(this.carouselContainer.getAttribute('wt-carousel-next'));
 		dots = this.carouselContainer.getAttribute('wt-carousel-dots') || "false";
 		arrows = this.carouselContainer.getAttribute('wt-carousel-arrows') || "true";
 		customNext = this.carouselContainer.hasAttribute('wt-carousel-arrowNext') ? this.carouselContainer.getAttribute('wt-carousel-arrowNext') : null;
