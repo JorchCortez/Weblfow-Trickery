@@ -3,7 +3,7 @@ let bannerContainer = document.querySelector('[wt-carousel-element="container"]'
 let bannerControlsContainer = document.querySelector('[wt-carousel-element="controls"]');
 let bannerItems = document.querySelectorAll('[wt-carousel-element="slide"]');
 let prev = "previous", next = "next", dots="true", arrows="true", customNext, customPrev;
-const bannerControls = [prev,next] ;
+let bannerControls = [prev,next] ;
 let autoPlayTimeout = undefined;
 
 class Carousel {
@@ -152,6 +152,7 @@ class Carousel {
 		arrows = this.carouselContainer.getAttribute('wt-carousel-arrows') || "true";
 		customNext = this.carouselContainer.hasAttribute('wt-carousel-arrowNext') ? this.carouselContainer.getAttribute('wt-carousel-arrowNext') : null;
 		customPrev = this.carouselContainer.hasAttribute('wt-carousel-arrowprev') ? this.carouselContainer.getAttribute('wt-carousel-arrowprev') : null;
+	 	bannerControls = [prev,next]
 	}
       this.setCarousel();
       this.setControls();
