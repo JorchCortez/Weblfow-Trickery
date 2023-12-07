@@ -2,14 +2,18 @@
 const bannerContainer = document.querySelector('[wt-carousel-element="container"]');
 const bannerControlsContainer = document.querySelector('[wt-carousel-element="controls"]');
 const bannerItems = document.querySelectorAll('[wt-carousel-element="slide"]');
-const prev = escape(bannerContainer.getAttribute('wt-carousel-prev')) || "previous";
-const next = escape(bannerContainer.getAttribute('wt-carousel-next')) || "next";
-const dots = bannerContainer.getAttribute('wt-carousel-dots') || "false";
-const arrows = bannerContainer.getAttribute('wt-carousel-arrows') || "false";
-const customNext = bannerContainer.hasAttribute('wt-carousel-arrowNext') ? bannerContainer.getAttribute('wt-carousel-arrowNext') : null;
-const customPrev = bannerContainer.hasAttribute('wt-carousel-arrowprev') ? bannerContainer.getAttribute('wt-carousel-arrowprev') : null;
+let prev = "previous", next = "next", dots="true", arrows="true", customNext, customPrev;
 const bannerControls = [prev,next] ;
 let autoPlayTimeout = undefined;
+
+if(bannerContainer){
+	prev = escape(bannerContainer.getAttribute('wt-carousel-prev')) || "previous";
+	next = escape(bannerContainer.getAttribute('wt-carousel-next')) || "next";
+	dots = bannerContainer.getAttribute('wt-carousel-dots') || "false";
+	arrows = bannerContainer.getAttribute('wt-carousel-arrows') || "false";
+	customNext = bannerContainer.hasAttribute('wt-carousel-arrowNext') ? bannerContainer.getAttribute('wt-carousel-arrowNext') : null;
+	customPrev = bannerContainer.hasAttribute('wt-carousel-arrowprev') ? bannerContainer.getAttribute('wt-carousel-arrowprev') : null;
+}
 
 class Carousel {
   constructor(container, items, controls){
