@@ -44,7 +44,8 @@ class Carousel {
   
   setCarousel(){
     this.carouselArray.forEach((slide, index) =>{
-      slide.setAttribute('data-slide', index)
+      	slide.setAttribute('data-slide', index)
+	slide.classList.add('wt-carousel-slide')
     })
   }
   
