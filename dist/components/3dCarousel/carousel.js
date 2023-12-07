@@ -6,15 +6,6 @@ let prev = "previous", next = "next", dots="true", arrows="true", customNext, cu
 const bannerControls = [prev,next] ;
 let autoPlayTimeout = undefined;
 
-if(bannerContainer){
-	prev = escape(bannerContainer.getAttribute('wt-carousel-prev')) || "previous";
-	next = escape(bannerContainer.getAttribute('wt-carousel-next')) || "next";
-	dots = bannerContainer.getAttribute('wt-carousel-dots') || "false";
-	arrows = bannerContainer.getAttribute('wt-carousel-arrows') || "false";
-	customNext = bannerContainer.hasAttribute('wt-carousel-arrowNext') ? bannerContainer.getAttribute('wt-carousel-arrowNext') : null;
-	customPrev = bannerContainer.hasAttribute('wt-carousel-arrowprev') ? bannerContainer.getAttribute('wt-carousel-arrowprev') : null;
-}
-
 class Carousel {
   constructor(container, items, controls){
     this.carouselContainer = container;
@@ -153,7 +144,15 @@ class Carousel {
     }, 3000)
 	}
 
-  initializeSlider(){ 
+  initializeSlider(){
+	if(this.carouselContainer){
+		prev = escape(this.carouselContainer.getAttribute('wt-carousel-prev')) || "previous";
+		next = escape(this.carouselContainer.getAttribute('wt-carousel-next')) || "next";
+		dots = this.carouselContainer.getAttribute('wt-carousel-dots') || "false";
+		arrows = this.carouselContainer.getAttribute('wt-carousel-arrows') || "true";
+		customNext = this.carouselContainer.hasAttribute('wt-carousel-arrowNext') ? this.carouselContainer.getAttribute('wt-carousel-arrowNext') : null;
+		customPrev = this.carouselContainer.hasAttribute('wt-carousel-arrowprev') ? this.carouselContainer.getAttribute('wt-carousel-arrowprev') : null;
+	}
       this.setCarousel();
       this.setControls();
       this.useControls();
