@@ -179,14 +179,8 @@ class Carousel {
   }
 }
 
+window.addEventListener('DOMContentLoaded', function () { 
+const bannerCarousel = new Carousel(bannerContainer, bannerItems, bannerControls);
+bannerCarousel.initializeSlider();
+})
 
-
-if (/complete|interactive|loaded/.test(document.readyState)) {
-	const bannerCarousel = new Carousel(bannerContainer, bannerItems, bannerControls);
-	bannerCarousel.initializeSlider();
-} else { 
-    window.addEventListener('DOMContentLoaded', function () { 
-	const bannerCarousel = new Carousel(bannerContainer, bannerItems, bannerControls);
-	bannerCarousel.initializeSlider();
-    })
-}
