@@ -1,3 +1,4 @@
+
 .wt-carousel-slide {
     z-index: 0;
     width: 55.556vw;
@@ -8,34 +9,35 @@
     top: 20px;
     z-index: -1;
 }
-
-.wt-carousel-i-1 {
+.banner-container .banner-item.wt-carousel-i-1 {
 	left: 20%;
   opacity: .4 !important;
+  z-index:0;
   transform: translateX(-50%) scale(0.6);
 }
-.wt-carousel-i-2 {
+.banner-container .banner-item.wt-carousel-i-2 {
 	left: 35%;
   z-index:1;
   opacity: 1 !important;
   transform: translateX(-50%) scale(0.8);
 }
-.wt-carousel-i-3 {
+.banner-container .banner-item.wt-carousel-i-3 {
 	left: 50%;
   opacity: 1 !important;
   transform: translateX(-50%);
   box-shadow: 12px 5px 33px 6px rgba(0,0,0,0,0.35);
   z-index:2;
 }
-.wt-carousel-i-4 {
+.banner-container .banner-item.wt-carousel-i-4 {
 	left: 65%;
   z-index:1;
   opacity: 1 !important;
   transform: translateX(-50%) scale(0.8);
 }
-.wt-carousel-i-5 {
+.banner-container .banner-item.wt-carousel-i-5 {
 	left: 80%;
   opacity: .4 !important;
+  z-index:0;
   transform: translateX(-50%) scale(0.6);
 }
 
@@ -48,5 +50,5 @@
   border: none;
 }
 .wt-slider-dot.active {
-  background-color: #ff0000; 
+  background-color: #ff0000;
 }
