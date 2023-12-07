@@ -154,6 +154,21 @@ class Carousel {
 	}
 
   initializeSlider(){ 
+	if(!bannerContainer || !bannerControlsContainer || !bannerItems){
+		if(!bannerContainer){ 
+			console.error("No carousel containers found, cancelling initialization");
+			return;
+	    	}
+		if(!bannerControlsContainer){ 
+			console.error("No carousel controls element found, cancelling initialization");
+			return;
+	    	}
+		if(!bannerItems){ 
+			console.error("The carousel has no elements in it, cancelling initialization");
+			return;
+	    	}
+		return;
+	}
       this.setCarousel();
       this.setControls();
       this.useControls();
