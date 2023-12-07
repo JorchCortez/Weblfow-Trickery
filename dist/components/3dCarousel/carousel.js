@@ -1,7 +1,7 @@
 
-const bannerContainer = document.querySelector('[wt-carousel-element="container"]');
-const bannerControlsContainer = document.querySelector('[wt-carousel-element="controls"]');
-const bannerItems = document.querySelectorAll('[wt-carousel-element="slide"]');
+let bannerContainer = document.querySelector('[wt-carousel-element="container"]');
+let bannerControlsContainer = document.querySelector('[wt-carousel-element="controls"]');
+let bannerItems = document.querySelectorAll('[wt-carousel-element="slide"]');
 let prev = "previous", next = "next", dots="true", arrows="true", customNext, customPrev;
 const bannerControls = [prev,next] ;
 let autoPlayTimeout = undefined;
@@ -154,6 +154,20 @@ class Carousel {
 	}
 
   initializeSlider(){ 
+      this.setCarousel();
+      this.setControls();
+      this.useControls();
+      this.carouselArray.unshift(this.carouselArray.pop());
+      this.carouselArray.unshift(this.carouselArray.pop());
+      this.updateGal();
+      this.autoPlay();
+  }
+}
+
+window.addEventListener('DOMContentLoaded', function () { 
+	if(!bannerContainer) bannerContainer = document.querySelector('[wt-carousel-element="container"]');
+	if(!bannerControlsContainer) bannerControlsContainer = document.querySelector('[wt-carousel-element="controls"]');
+	if(!bannerItems) bannerItems = document.querySelectorAll('[wt-carousel-element="slide"]');
 	if(!bannerContainer || !bannerControlsContainer || !bannerItems){
 		if(!bannerContainer){ 
 			console.error("No carousel containers found, cancelling initialization");
@@ -169,17 +183,6 @@ class Carousel {
 	    	}
 		return;
 	}
-      this.setCarousel();
-      this.setControls();
-      this.useControls();
-      this.carouselArray.unshift(this.carouselArray.pop());
-      this.carouselArray.unshift(this.carouselArray.pop());
-      this.updateGal();
-      this.autoPlay();
-  }
-}
-
-window.addEventListener('DOMContentLoaded', function () { 
 const bannerCarousel = new Carousel(bannerContainer, bannerItems, bannerControls);
 bannerCarousel.initializeSlider();
 })
