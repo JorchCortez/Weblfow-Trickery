@@ -13,6 +13,7 @@ const InitializeBASliders = () => {
     BASliders.forEach(slider => { 
         let sliderWrapper = slider.parentElement;
       slider.addEventListener('input', (e) => {
+          e.stopPropagation()
           sliderWrapper.style.setProperty('--position', `${e.target.value}%`)
       })
     })
