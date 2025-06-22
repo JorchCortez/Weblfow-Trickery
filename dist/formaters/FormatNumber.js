@@ -76,10 +76,4 @@ const FormatNumbers = () => {
     });
 }
 
-if (/complete|interactive|loaded/.test(document.readyState)) {
-    FormatNumbers();
-} else { 
-    window.addEventListener('DOMContentLoaded', function () { 
-        FormatNumbers();
-    })
-}
+window.addEventListener('DOMContentLoaded', FormatNumbers())
